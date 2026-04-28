@@ -1,0 +1,20 @@
+[project]
+name = "lorentz-scalping-engine-backend"
+version = "0.1.0"
+description = "Asyncio backend for the local-first Lorentz scalping engine."
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi",
+  "uvicorn",
+  "websockets",
+  "hypothesis",
+  "pytest",
+  "pytest-asyncio",
+  "pydantic",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = [
+  "tests",
+]
