@@ -1,0 +1,13 @@
+{
+  "enabled": true,
+  "name": "Post-Market Auto Research",
+  "description": "Runs the AI auto-research skill after market close (or on manual trigger) to analyze today's trade log, test hypotheses across RSI/regime/time/slope dimensions, rank insights, and write a structured research report with ready-to-apply settings suggestions. Inspired by karpathy/autoresearch.",
+  "version": "1",
+  "when": {
+    "type": "userTriggered"
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "Run the post-market auto-research cycle using the skill defined in .kiro/skills/post-market-research.md.\n\nFollow the full research loop:\n1. LOAD today's trade log from backend/memory/trades.jsonl\n2. BASELINE — compute today's metrics vs 20-trade rolling baseline\n3. HYPOTHESIZE — form hypotheses across RSI, regime, time bucket, slope method, confidence score, override patterns, and trade quality dimensions\n4. TEST — backtest each hypothesis against historical logs (minimum 10 trades per bucket)\n5. RANK — score insights by expected_improvement × confidence / complexity\n6. REPORT — write full research report to backend/memory/insights/YYYY-MM-DD.json\n7. SUGGEST — output ready-to-apply settings diff to backend/memory/suggestions/\n\nIf trade log doesn't exist yet or has fewer than 5 trades, write an \"insufficient data\" report and stop.\nAlways reference the skill file for full instructions and output format."
+  }
+}

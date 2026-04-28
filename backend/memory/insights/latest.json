@@ -1,0 +1,34 @@
+{
+  "experiment_id": "EXP-2026-04-28-001",
+  "date": "2026-04-28",
+  "generated_at": "2026-04-28T15:35:00+05:30",
+  "session_summary": {
+    "total_trades": 0,
+    "win_rate": null,
+    "avg_pnl": null,
+    "vs_baseline": "insufficient_data",
+    "suppressed_count": 0,
+    "override_count": 0,
+    "avg_confidence_score": null
+  },
+  "baseline": {
+    "rolling_trades_available": 0,
+    "baseline_win_rate": null,
+    "baseline_avg_pnl": null,
+    "baseline_sharpe": null,
+    "day_classification": "insufficient_data"
+  },
+  "hypotheses_tested": 0,
+  "insights": [],
+  "override_patterns": [],
+  "drift_assessment": "UNKNOWN",
+  "status": "INSUFFICIENT_DATA",
+  "reason": "No trade log found at backend/memory/trades.jsonl. The system has not yet executed any trades. Research cycle requires a minimum of 5 completed trades to proceed. Hypothesis testing requires a minimum of 10 trades per bucket.",
+  "next_steps": [
+    "Run the Lorentz Scalping Engine during market hours (09:15–15:30 IST) to generate trade data.",
+    "Ensure backend/memory/trades.jsonl is being written by the Trade_Logger.",
+    "Re-trigger the research cycle after at least 5 completed trades are logged.",
+    "For meaningful hypothesis testing, aim for 30+ trades across multiple sessions."
+  ],
+  "recommended_next_experiment": "EXP-2026-04-29-001 — First full session baseline establishment"
+}
